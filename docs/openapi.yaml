@@ -1,0 +1,56 @@
+openapi: 3.1.0
+info:
+  title: Sample API
+  description: これはテスト用のシンプルなAPIです。
+  version: 1.0.0
+servers:
+  - url: https://api.example.com/v1
+    description: 本番環境
+  - url: http://localhost:3000/v1
+    description: ローカル開発環境
+
+paths:
+  /hello:
+    get:
+      summary: 挨拶を返す
+      description: シンプルなテキストの挨拶を返します。
+      responses:
+        '200':
+          description: 正常なレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "こんにちは！"
+
+  /users/{id}:
+    get:
+      summary: ユーザー情報取得
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ユーザー情報
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 123
+                  name:
+                    type: string
+                    example: "山田 太郎"
+                  email:
+                    type: string
+                    example: "taro@example.com"
+        '404':
+          description: ユーザーが見つかりませんでした

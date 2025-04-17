@@ -3,10 +3,11 @@ SwaggerやRedocなどのAPI仕様書を、Cloudfront + S3で公開するため�
 また、Basic認証を入れるのによい方法があるか検証するためのもの
 
 # 構成
-
--
-|- cdk: インフラ構築
-|- docs: swaggerのファイル配置
+```
+.
+├── cdk   # インフラ構築
+└── docs  # Swaggerのファイル配置
+```
 
 
 # 構築
